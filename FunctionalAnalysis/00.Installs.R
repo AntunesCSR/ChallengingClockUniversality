@@ -2,3 +2,4 @@
 
 install.packages('biocmanager')
 BiocManager::install('clusterProfiler')
+BiocManager::install('RDAVIDWebService')
