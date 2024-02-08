@@ -1,0 +1,101 @@
+index,var,beta_clock3,CHR,bp_hg38,Gene,Gene.hg19,ENTREZID,conservationInMouse,GeneRegionID,annotation,CHR_mm10,bp_mm10,Gene_mm10
+493,cg26512254,2.63829942189619,7,27200144,HOTTIP,HOXA13,100316868,mapped to different gene in human and mouse,HOTTIP_Intron,"Intron (ENST00000421733.1/100316868, intron 1 of 1)",6,52260841.0,Hoxa13
+99,cg09710440,1.85468948953014,7,104328932,LHFPL3,LHFPL3,375612,"mapped in human, not mapped in mouse",LHFPL3_Exon,Promoter (<=1kb),,,
+34,cg18418719,1.80602757799643,3,70972083,FOXP1,FOXP1,27086,mapped to different gene in human and mouse,FOXP1_threeUTR,3' UTR,6,98941067.0,Foxp1
+134,cg24352905,1.73821818023407,5,77645452,OTP,OTP,23440,conserved gene and region in mouse and human,OTP_Promoter,Promoter (5-6kb),13,94869014.0,Otp
+576,cg05474883,1.46349524712607,4,82354926,HNRNPD,HNRNPD,3184,conserved gene and region in mouse and human,HNRNPD_threeUTR,3' UTR,5,99962129.0,Hnrnpd
+757,cg06493080,1.45114007571917,17,48610948,HOXB7,HOXB7,3217,conserved gene and region in mouse and human,HOXB7_fiveUTR,Promoter (<=1kb),11,96286697.0,Hoxb7
+118,cg09227056,1.43699539133007,2,176075721,EVX2,EVX2,344191,conserved gene and region in mouse and human,EVX2_Intergenic_downstream,Distal Intergenic,2,74651253.0,Evx2
+24,cg19927064,1.41247685864403,12,48818919,CACNB3,CACNB3,784,conserved gene and region in mouse and human,CACNB3_fiveUTR,5' UTR,15,98635158.0,Cacnb3
+121,cg19711579,1.13328861668229,2,181680835,NEUROD1,NEUROD1,4760,mapped to different gene in human and mouse,NEUROD1_fiveUTR,Promoter (<=1kb),2,79456940.0,Cerkl
+152,cg20766695,1.06311208600246,9,37026581,PAX5,PAX5,5079,conserved gene but different region in human and mouse,PAX5_Intron,"Intron (ENST00000358127.9/5079, intron 1 of 9)",4,44703419.0,Pax5
+123,cg12841266,0.999456680946853,3,9552409,LHFPL4,LHFPL4,375323,conserved gene and region in mouse and human,LHFPL4_Exon,"Exon (ENST00000287585.8/375323, exon 2 of 4)",6,113193953.0,Lhfpl4
+452,cg05401971,0.951121378636945,11,67250713,KDM2A,KDM2A,22992,"mapped in human, not mapped in mouse",KDM2A_Exon,"Exon (ENST00000529006.7/22992, exon 17 of 21)",19,4324421.0,Kdm2a
+548,cg01594275,0.902701811191423,22,41160539,EP300,EP300,2033,conserved gene and region in mouse and human,EP300_Intron,"Intron (ENST00000263253.9/2033, intron 19 of 30)",15,81633901.0,Ep300
+182,cg06997801,0.879050116639708,15,96331522,NR2F2,NR2F2,7026,conserved gene but different region in human and mouse,NR2F2_fiveUTR,5' UTR,7,70360923.0,Nr2f2
+732,cg01975510,0.874906982402758,11,67250350,KDM2A,KDM2A,22992,conserved gene and region in mouse and human,KDM2A_Exon,"Exon (ENST00000529006.7/22992, exon 17 of 21)",19,4324781.0,Kdm2a
+139,cg27201382,0.81105340494664,11,27720483,BDNF,BDNF,627,conserved gene and region in mouse and human,BDNF_fiveUTR,Promoter (<=1kb),2,109676257.0,Bdnf
+522,cg16390944,0.777365973779213,1,54407686,SSBP3,SSBP3,23648,conserved gene but different region in human and mouse,SSBP3_Intron,"Intron (ENST00000525990.1/23648, intron 1 of 8)",4,106910374.0,Ssbp3
+573,cg04998737,0.776527880147069,5,77645403,OTP,OTP,23440,conserved gene and region in mouse and human,OTP_Promoter,Promoter (5-6kb),13,94869063.0,Otp
+5,cg15168457,0.76623411519073,12,111516347,ATXN2,ATXN2,6311,conserved gene and region in mouse and human,ATXN2_Exon,"Exon (ENST00000642389.2/6311, exon 10 of 27)",5,121781348.0,Atxn2
+654,cg24504442,0.762227834051392,15,37099474,MEIS2,MEIS2,4212,conserved gene and region in mouse and human,MEIS2_fiveUTR,5' UTR,2,116064821.0,Meis2
+386,cg10609096,0.748360398545643,3,138245202,ARMC8,ARMC8,25852,conserved gene but different region in human and mouse,ARMC8_threeUTR,3' UTR,9,99520467.0,Armc8
+611,cg20424997,0.731503701672027,16,58588863,CNOT1,CNOT1,23019,"mapped in human, not mapped in mouse",CNOT1_Exon,"Exon (ENST00000317147.10/23019, exon 3 of 49)",8,95775343.0,Cnot1
+267,cg08074329,0.728638706742399,7,23470655,IGF2BP3,IGF2BP3,10643,conserved gene and region in mouse and human,IGF2BP3_Promoter,Promoter (<=1kb),6,49214967.0,Igf2bp3
+556,cg06878766,0.725767510443739,8,56210721,PLAG1,PLAG1,5324,conserved gene and region in mouse and human,PLAG1_Promoter,Promoter (<=1kb),4,3937818.0,Plag1
+403,cg09200783,0.725379251493346,14,56590439,TMEM260,TMEM260,54916,conserved gene and region in mouse and human,TMEM260_Intron,"Intron (ENST00000556422.5/54916, intron 3 of 14)",14,48456488.0,Tmem260
+206,cg12685265,0.716542527061562,7,105015676,KMT2E,KMT2E,55904,conserved gene and region in mouse and human,KMT2E_Intron,"Intron (ENST00000257745.8/55904, intron 1 of 25)",5,23435902.0,Kmt2e
+551,cg01429475,0.713265653298986,10,101451718,BTRC,BTRC,8945,conserved gene but different region in human and mouse,BTRC_Intron,"Intron (ENST00000393441.8/8945, intron 2 of 13)",19,45446662.0,Btrc
+88,cg02041553,0.694224470184432,6,85614958,SYNCRIP,SYNCRIP,10492,mapped to different gene in human and mouse,SYNCRIP_Exon,"Exon (ENST00000369622.8/10492, exon 11 of 11)",9,88456340.0,Gm20537
+107,cg23087015,0.690743560734564,15,72319625,CELF6,CELF6,60677,"mapped in human, not mapped in mouse",CELF6_threeUTR,Promoter (<=1kb),9,59578626.0,Celf6
+154,cg07547549,0.668011925443655,20,46029586,SLC12A5,SLC12A5,57468,"mapped in human, not mapped in mouse",SLC12A5_Intron,"Intron (ENST00000454036.6/57468, intron 1 of 25)",,,
+192,cg10930156,0.667346607150711,17,61399785,LOC101927855,TBX2,101927855,mapped to different gene in human and mouse,LOC101927855_Promoter,Promoter (<=1kb),11,85832710.0,Tbx2
+4,cg08938156,0.663271651647634,3,147409417,LOC440982,ZIC1,440982,mapped to different gene in human and mouse,LOC440982_fiveUTR,5' UTR,9,91365746.0,Zic1
+202,cg11438204,0.648551985270517,7,128754286,CALU,CALU,813,"mapped in human, not mapped in mouse",CALU_Exon,"Exon (ENST00000535011.6/813, exon 3 of 6)",6,29361318.0,Calu
+574,cg02532525,0.645200863534836,17,2050353,MIR212,MIR212,406994,mapped to different gene in human and mouse,MIR212_Exon,Promoter (<=1kb),11,75173399.0,Hic1
+276,cg16697952,0.639392112041747,15,60004267,FOXB1,FOXB1,27023,mapped to different gene in human and mouse,FOXB1_Exon,Promoter (<=1kb),9,69760917.0,Foxb1
+405,cg11275232,0.635985702712684,14,66985695,GPHN,GPHN,10243,conserved gene and region in mouse and human,GPHN_Exon,"Exon (ENST00000543237.5/10243, exon 10 of 25)",12,78522911.0,Gphn
+38,cg07991826,0.585346755963854,1,155268734,CLK2,CLK2,1196,mapped to different gene in human and mouse,CLK2_Exon,"Exon (ENST00000361168.9/1196, exon 4 of 13)",3,89169627.0,Clk2
+669,cg23059642,0.578902175047723,7,69599955,AUTS2,AUTS2,26053,"mapped in human, not mapped in mouse",AUTS2_Exon,"Exon (ENST00000644939.1/26053, exon 1 of 19)",,,
+95,cg01150494,0.575928417716582,12,119718845,CIT,CIT,11113,conserved gene but different region in human and mouse,CIT_Exon,"Exon (ENST00000261833.11/11113, exon 30 of 47)",5,115981665.0,Cit
+592,cg23089474,0.57092581994314,5,142357056,SPRY4-AS1,SPRY4,101926941,mapped to different gene in human and mouse,SPRY4-AS1_Intron,"Intron (ENST00000510311.5/101926941, intron 3 of 3)",18,38631673.0,Spry4
+481,cg12818872,0.550764024964105,2,43905666,LRPPRC,LRPPRC,10128,"mapped in human, not mapped in mouse",LRPPRC_Intron,"Intron (ENST00000260665.12/10128, intron 31 of 37)",17,84716601.0,Lrpprc
+6,cg20370622,0.549191100334556,4,41748222,PHOX2B,PHOX2B,8929,conserved gene and region in mouse and human,PHOX2B_Promoter,Promoter (<=1kb),5,67098553.0,Phox2b
+127,cg24866418,0.540912434426024,3,9552398,LHFPL4,LHFPL4,375323,conserved gene and region in mouse and human,LHFPL4_Exon,"Exon (ENST00000287585.8/375323, exon 2 of 4)",6,113193942.0,Lhfpl4
+83,cg20265593,0.537666427537757,17,56594853,NOG,NOG,9241,conserved gene and region in mouse and human,NOG_Exon,"Exon (ENST00000332822.5/9241, exon 1 of 1)",11,89301390.0,Nog
+546,cg11417778,0.535082540324345,21,32755277,PAXBP1,PAXBP1,94104,conserved gene and region in mouse and human,PAXBP1_Exon,"Exon (ENST00000331923.9/94104, exon 8 of 18)",16,91030480.0,Paxbp1
+136,cg09817427,0.516067401238891,6,84764595,TBX18,TBX18,9096,"mapped in human, not mapped in mouse",TBX18_fiveUTR,Promoter (<=1kb),9,87731262.0,Tbx18
+511,cg14991111,0.504276666196371,7,135394031,CNOT4,CNOT4,4850,conserved gene and region in mouse and human,CNOT4_Exon,"Exon (ENST00000451834.5/4850, exon 10 of 12)",6,35051175.0,Cnot4
+600,cg27430422,0.503727168189155,17,35824152,TAF15,TAF15,8148,conserved gene and region in mouse and human,TAF15_Exon,"Exon (ENST00000604879.5/8148, exon 7 of 10)",11,83488999.0,Taf15
+707,cg07875786,0.493942107409069,5,93583221,NR2F1,NR2F1,7025,mapped to different gene in human and mouse,NR2F1_fiveUTR,Promoter (<=1kb),13,78200391.0,Nr2f1
+212,cg06799948,0.488363422433238,9,14314636,NFIB,NFIB,4781,conserved gene and region in mouse and human,NFIB_Intron,"Intron (ENST00000635877.1/4781, intron 1 of 9)",4,82505824.0,Nfib
+122,cg11084334,0.475738407873118,3,9552580,LHFPL4,LHFPL4,375323,"mapped in human, not mapped in mouse",LHFPL4_Exon,"Exon (ENST00000287585.8/375323, exon 2 of 4)",6,113194124.0,Lhfpl4
+109,cg13909487,0.46945923633756,16,51151546,SALL1,SALL1,6299,conserved gene but different region in human and mouse,SALL1_Promoter,Promoter (<=1kb),8,89042729.0,Sall1
+524,cg22067905,0.46557503079237,2,43905631,LRPPRC,LRPPRC,10128,conserved gene and region in mouse and human,LRPPRC_Intron,"Intron (ENST00000260665.12/10128, intron 31 of 37)",17,84716566.0,Lrpprc
+476,cg21351544,0.453299203172929,6,149369995,TAB2,TAB2,23118,conserved gene and region in mouse and human,TAB2_fiveUTR,5' UTR,10,7924788.0,Tab2
+644,cg00489428,0.451606301790843,17,28759267,FAM222B,FAM222B,55731,"mapped in human, not mapped in mouse",FAM222B_threeUTR,3' UTR,11,78154305.0,Fam222b
+162,cg05704605,0.448091841865695,20,47238916,ZMYND8,ZMYND8,23613,"mapped in human, not mapped in mouse",ZMYND8_Exon,"Exon (ENST00000311275.11/23613, exon 15 of 22)",2,165807695.0,Zmynd8
+232,cg14517144,0.438544954838271,10,68338663,HNRNPH3,HNRNPH3,3189,"mapped in human, not mapped in mouse",HNRNPH3_Exon,"Exon (ENST00000469172.5/3189, exon 2 of 8)",10,63018064.0,Hnrnph3
+748,cg12830057,0.435922245194697,3,69879222,MITF,MITF,4286,"mapped in human, not mapped in mouse",MITF_Exon,"Exon (ENST00000352241.8/4286, exon 2 of 10)",6,97941141.0,Mitf
+286,cg08040307,0.435126201642582,1,77633377,ZZZ3,ZZZ3,26009,conserved gene and region in mouse and human,ZZZ3_fiveUTR,5' UTR,3,152427304.0,Zzz3
+327,cg03942000,0.426064339228351,9,128393488,MIR219A2,MIR219A2,407003,conserved gene but different region in human and mouse,MIR219A2_Exon,Promoter (<=1kb),2,29846471.0,Urm1
+272,cg12156848,0.412370274409777,15,60677183,RORA,RORA,6095,conserved gene and region in mouse and human,RORA_Exon,"Exon (ENST00000551975.5/6095, exon 3 of 6)",9,69197556.0,Rora
+489,cg25468783,0.403062632920862,7,151136533,AGAP3,AGAP3,116988,conserved gene but different region in human and mouse,AGAP3_Exon,"Exon (ENST00000467250.1/116988, exon 2 of 2)",5,24495255.0,Agap3
+484,cg08538268,0.39830131657843,9,23765097,ELAVL2,ELAVL2,1993,conserved gene and region in mouse and human,ELAVL2_fiveUTR,5' UTR,4,91311661.0,Elavl2
+510,cg01712842,0.39627899298286,4,112523624,NEUROG2-AS1,NEUROG2,105377372,mapped to different gene in human and mouse,NEUROG2-AS1_Intron,"Intron (ENST00000504009.1/105377372, intron 1 of 3)",3,127625813.0,Neurog2
+544,cg04787747,0.395064496432023,21,33576435,DONSON,DONSON,29980,mapped to different gene in human and mouse,DONSON_threeUTR,3' UTR,16,91678171.0,Donson
+357,cg05207134,0.390179413297577,5,134790076,DDX46,DDX46,9879,"mapped in human, not mapped in mouse",DDX46_Intron,"Intron (ENST00000628477.2/9879, intron 11 of 11)",13,55660323.0,Ddx46
+561,cg24952195,0.388654918322524,3,18356048,SATB1,SATB1,6304,conserved gene but different region in human and mouse,SATB1_Intron,"Intron (ENST00000414318.2/9779, intron 1 of 8)",17,51746925.0,Satb1
+75,cg11664765,0.380126654338487,4,182601068,TENM3,TENM3,55714,conserved gene but different region in human and mouse,TENM3_Exon,"Exon (ENST00000511685.6/55714, exon 4 of 28)",8,48417100.0,Tenm3
+278,cg02456804,0.379270187211769,1,166070621,FAM78B,FAM78B,149297,conserved gene and region in mouse and human,FAM78B_Exon,"Exon (ENST00000435676.2/149297, exon 2 of 3)",1,167078678.0,Fam78b
+684,cg20432508,0.372522727122856,5,66162474,SREK1,SREK1,140890,mapped to different gene in human and mouse,SREK1_threeUTR,3' UTR,13,103760533.0,Srek1
+14,cg11700079,0.358728283447903,5,171310377,TLX3,TLX3,30012,conserved gene and region in mouse and human,TLX3_Exon,"Exon (ENST00000296921.6/30012, exon 2 of 3)",11,33202444.0,Tlx3
+147,cg12879445,0.357544055061833,14,93431016,UNC79,UNC79,57578,conserved gene but different region in human and mouse,UNC79_fiveUTR,Promoter (<=1kb),12,102949588.0,Unc79
+658,cg21907062,0.340355423785273,2,174081061,OLA1,OLA1,29789,conserved gene but different region in human and mouse,OLA1_Exon,"Exon (ENST00000462000.1/29789, exon 4 of 4)",2,73099201.0,Ola1
+274,cg13953571,0.334016111173525,15,70099807,TLE3,TLE3,7090,conserved gene and region in mouse and human,TLE3_Promoter,Promoter (1-2kb),9,61370524.0,Tle3
+495,cg02040024,0.331977499757543,8,22691369,EGR3,EGR3,1960,"mapped in human, not mapped in mouse",EGR3_threeUTR,3' UTR,14,70079008.0,Egr3
+156,cg02766818,0.330954772862326,2,60555120,BCL11A,BCL11A,53335,"mapped in human, not mapped in mouse",BCL11A_Promoter,Promoter (<=1kb),11,24076564.0,A830031A19Rik
+381,cg02177464,0.330015991542837,2,159453749,BAZ2B,BAZ2B,29994,"mapped in human, not mapped in mouse",BAZ2B_Exon,"Exon (ENST00000392783.7/29994, exon 4 of 37)",2,59983918.0,Baz2b
+751,cg04228573,0.322903408528207,17,69414658,MAP2K6,MAP2K6,5608,conserved gene and region in mouse and human,MAP2K6_Promoter,Promoter (<=1kb),11,110399083.0,Map2k6
+675,cg17114460,0.321622952098243,17,28884283,FLOT2,FLOT2,2319,conserved gene and region in mouse and human,FLOT2_Exon,"Exon (ENST00000394906.6/2319, exon 5 of 13)",11,78054816.0,Flot2
+735,cg12923877,0.309023159664082,1,70230602,SRSF11,SRSF11,9295,conserved gene and region in mouse and human,SRSF11_Exon,"Exon (ENST00000463116.1/9295, exon 1 of 2)",3,158024713.0,Srsf11
+35,cg26845448,0.306361531991895,5,114362796,KCNN2,KCNN2,3781,conserved gene but different region in human and mouse,KCNN2_fiveUTR,5' UTR,18,45560174.0,Gm31907
+740,cg19604874,0.304835722017549,4,30920159,PCDH7,PCDH7,5099,conserved gene but different region in human and mouse,PCDH7_Exon,"Exon (ENST00000511884.6/5099, exon 2 of 3)",5,57913162.0,Pcdh7
+148,cg11235379,0.303685223104426,2,161417813,TBR1,TBR1,10716,"mapped in human, not mapped in mouse",TBR1_Exon,"Exon (ENST00000389554.8/10716, exon 2 of 6)",2,61806111.0,Tbr1
+437,cg12591580,0.29583980071411,11,66626657,RBM14-RBM4,RBM14-RBM4,100526737,mapped to different gene in human and mouse,RBM14-RBM4_threeUTR,3' UTR,19,4801608.0,Gm21992
+393,cg15471501,0.291870770251643,20,21103492,LINC00237,KIZ,105372556,"mapped in human, not mapped in mouse",LINC00237_Intron,"Intron (ENST00000655093.1/105372556, intron 1 of 3)",2,146836821.0,Kiz
+20,cg13532184,0.289516581563769,12,56118310,ESYT1,ZC3H10,23344,mapped to different gene in human and mouse,ESYT1_fiveUTR,Promoter (<=1kb),10,128547701.0,Zc3h10
+367,cg19296935,0.283938189096116,7,50180223,ZPBP,SPATA48,11055,mapped to different gene in human and mouse,ZPBP_Intergenic_upstream,Distal Intergenic,11,11528304.0,Spata48
+12,cg03679521,0.282266721054847,17,39607900,NEUROD2,NEUROD2,4761,conserved gene and region in mouse and human,NEUROD2_fiveUTR,Promoter (<=1kb),11,98329605.0,Neurod2
+132,cg18304538,0.275639808107618,5,77852294,TBCA,TBCA,6902,conserved gene and region in mouse and human,TBCA_Intron,"Intron (ENST00000522370.1/6902, intron 1 of 3)",13,94702400.0,Gm48316
+653,cg21883915,0.271452209149653,15,58890390,RNF111,SLTM,54778,mapped to different gene in human and mouse,RNF111_threeUTR,3' UTR,9,70584002.0,Sltm
+316,cg17267107,0.26715679307053,1,10669966,CASZ1,CASZ1,54897,mapped to different gene in human and mouse,CASZ1_Intron,"Intron (ENST00000377022.8/54897, intron 4 of 20)",4,148924608.0,Casz1
+419,cg15340018,0.264567727540759,16,71756157,AP1G1,AP1G1,164,"mapped in human, not mapped in mouse",AP1G1_threeUTR,3' UTR,8,109843354.0,Ap1g1
+261,cg07265990,0.261674047920466,1,66946224,MIER1,MIER1,57708,"mapped in human, not mapped in mouse",MIER1_Exon,"Exon (ENST00000371018.7/57708, exon 5 of 16)",4,103131040.0,Mier1
+441,cg24597392,0.261008912853576,22,35768289,RBFOX2,RBFOX2,23543,conserved gene and region in mouse and human,RBFOX2_Exon,"Exon (ENST00000405409.6/23543, exon 5 of 12)",15,77105657.0,Rbfox2
+198,cg16745091,0.258721627970817,2,121418657,CLASP1,CLASP1,23332,conserved gene and region in mouse and human,CLASP1_Exon,"Exon (ENST00000646274.1/23332, exon 22 of 39)",1,118532049.0,Clasp1
+74,cg11128281,0.257841317086766,4,150599078,LRBA,LRBA,987,conserved gene but different region in human and mouse,LRBA_threeUTR,3' UTR,3,86532137.0,Lrba
+312,cg23567910,0.257780998620881,19,30224550,ZNF536,ZNF536,9745,conserved gene and region in mouse and human,ZNF536_Promoter,Promoter (3-4kb),7,37773800.0,Zfp536
+691,cg07476673,0.257431390502405,6,170293832,DLL1,DLL1,28514,conserved gene but different region in human and mouse,DLL1_Intron,"Intron (ENST00000630384.2/84498, intron 1 of 10)",17,15378866.0,Dll1
+349,cg20100200,0.255807281500266,14,63375966,PPP2R5E,PPP2R5E,5529,"mapped in human, not mapped in mouse",PPP2R5E_threeUTR,3' UTR,,,
+730,cg25195795,0.254922867476456,10,21518323,SKIDA1,SKIDA1,387640,mapped to different gene in human and mouse,SKIDA1_fiveUTR,5' UTR,2,18048863.0,Skida1
