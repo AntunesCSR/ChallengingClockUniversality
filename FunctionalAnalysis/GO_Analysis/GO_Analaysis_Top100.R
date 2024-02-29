@@ -6,7 +6,7 @@ library(ggplot2)
 #### LOAD THE DATA ####
 
 # List of file names
-file_names <- c("top_25_cpgs_clock_1.csv", "top_25_cpgs_clock_2.csv", "top_25_cpgs_clock_3.csv", "top_25_cpgs_overlap_1_2_3.csv", "top_25_cpgs_overlap_2_3.csv")
+file_names <- c("top_100_cpgs_clock_1.csv", "top_100_cpgs_clock_2.csv", "top_100_cpgs_clock_3.csv", "top_100_cpgs_overlap_1_2_3.csv", "top_100_cpgs_overlap_2_3.csv")
 
 # List to store data frames
 cpgs_data_list <- list()
@@ -21,11 +21,11 @@ for (file_name in file_names) {
 }
 
 # Access the data frames from the list
-clock_1_df <- cpgs_data_list[["top_25_cpgs_clock_1.csv"]]
-clock_2_df <- cpgs_data_list[["top_25_cpgs_clock_2.csv"]]
-clock_3_df <- cpgs_data_list[["top_25_cpgs_clock_3.csv"]]
-overlap_1_2_3_df <- cpgs_data_list[["top_25_cpgs_overlap_1_2_3.csv"]]
-overlap_2_3_df <- cpgs_data_list[["top_25_cpgs_overlap_2_3.csv"]]
+clock_1_df <- cpgs_data_list[["top_100_cpgs_clock_1.csv"]]
+clock_2_df <- cpgs_data_list[["top_100_cpgs_clock_2.csv"]]
+clock_3_df <- cpgs_data_list[["top_100_cpgs_clock_3.csv"]]
+overlap_1_2_3_df <- cpgs_data_list[["top_100_cpgs_overlap_1_2_3.csv"]]
+overlap_2_3_df <- cpgs_data_list[["top_100_cpgs_overlap_2_3.csv"]]
 
 
 
@@ -83,15 +83,15 @@ print(overlap_2_3_GOA_results)
 
 
 # Save the results to CSV files
-write.csv(clock_1_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_1_GOA_25_results.csv")
-write.csv(clock_2_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_2_GOA_25_results.csv")
-write.csv(clock_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_3_GOA_25_results.csv")
-write.csv(overlap_1_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overlap_1_2_3_GOA_25_results.csv")
-write.csv(overlap_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overlap_2_3_GOA_25_results.csv")
+write.csv(clock_1_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_1_GOA_100_results.csv")
+write.csv(clock_2_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_2_GOA_100_results.csv")
+write.csv(clock_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_3_GOA_100_results.csv")
+write.csv(overlap_1_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overlap_1_2_3_GOA_100_results.csv")
+write.csv(overlap_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overlap_2_3_GOA_100_results.csv")
 
 
 # Visualize the results
-# dotplot(clock_1_GOA_results, showCategory = 10)  # empty plot
+dotplot(clock_1_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 1")  # empty plot
 dotplot(clock_2_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 2")
 dotplot(clock_3_GOA_results, showCategory = 15, font=7, title = "Top 15 GO terms for clock 3")
 dotplot(overlap_1_2_3_GOA_results, showCategory = 15, title = "Top 15 GO terms for overlap of clocks 1, 2 and 3")
@@ -100,10 +100,10 @@ dotplot(overlap_2_3_GOA_results, showCategory = 15, font=7, title = "Top 15 GO t
 
 # Export the visualizations to PNG files
 # ggsave("FunctionalAnalysis/GO_Analysis/clock_1_GOA_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/clock_2_GOA_25_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/clock_3_GOA_25_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/overlap_1_2_3_GOA_25_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/overlap_2_3_GOA_25_results.png")
+ggsave("FunctionalAnalysis/GO_Analysis/clock_2_GOA_100_results.png")
+ggsave("FunctionalAnalysis/GO_Analysis/clock_3_GOA_100_results.png")
+ggsave("FunctionalAnalysis/GO_Analysis/overlap_1_2_3_GOA_100_results.png")
+ggsave("FunctionalAnalysis/GO_Analysis/overlap_2_3_GOA_100_results.png")
 
 
 
