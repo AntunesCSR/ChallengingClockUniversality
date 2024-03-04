@@ -13,7 +13,8 @@ library(dplyr)
 library(purrr)
 library(stringr)
 library(httr)
-
+library(org.Hs.eg.db)
+library(KEGGREST)
 
 #### LOAD THE DATA ####
 
@@ -36,13 +37,14 @@ top25_ov1_2_3_e <- top25_ov1_2_3$ENTREZID
 
 top25_ov2_3 <- read.table("./FunctionalAnalysis/top_25_cpgs_overlap_2_3.csv", header=TRUE, sep=",", quote="\"")
 top25_ov2_3_s <- top25_ov2_3$Gene
-top25_ov2_3_e <- top25_ov2_3$ENTREZID
+top25_ov2_3_e <- top25_ov2_3$ENTREZID # Empty. WHY??????? T^T
 
 
 
 #### FUNCTIONS ####
 
-# Function to retrieve protein-protein interaction data from BioGRID
+
+# Function to retrieve protein-protein interaction data from BioGRI
 retrieve_ppi_data_biogrid <- function(gene_list) {
   api_key <- "e250241e4295ebc3a4aa90057f51cc3d"
   url <- paste0("https://webservice.thebiogrid.org/interactions/?accesskey=", api_key,
@@ -59,33 +61,30 @@ retrieve_ppi_data_biogrid <- function(gene_list) {
 }
 
 
+# # Function to retrieve functional classification data from DAVID => not working like this. Need to use WEB services (Python)
+# retrieve_functional_classification_david <- function(gene_list) {
+#   url <- paste0("https://david.ncifcrf.gov/api.jsp?",
+#                 "type=ENTREZ_GENE_ID", # Correct type for DAVID
+#                 "&ids=", paste(gene_list, collapse = ","), 
+#                 "&tool=gene2gene"
+#   )
+#   
+#   # Print the URL for debugging
+#   cat("API URL:", url, "\n")
+#   
+#   response <- httr::GET(url)  # Adding this line to make the request
+#   content <- httr::content(response, "parsed")
+#   david_enrichment_data <- content$gene2gene
+#   return(david_enrichment_data)
+# }
 
-# Function to retrieve functional enrichment data from DAVID
-retrieve_functional_enrichment_david <- function(gene_list) {
-  url <- paste0("https://david.ncifcrf.gov/api/gene2gene.json?&ids=", paste(gene_list, collapse = ","), "&tool=chartReport&annot=GOTERM_BP_FAT,GOTERM_CC_FAT,GOTERM_MF_FAT,KEGG_PATHWAY,SP_PIR_KEYWORDS,INTERPRO,UP_SEQ_FEATURE")
-  response <- httr::GET(url)
-  content <- httr::content(response, "parsed")
-  david_enrichment_data <- content$gene2gene 
-  return(david_enrichment_data)
-}
-
-
-# Function to retrieve gene annotations from Ensembl
-retrieve_annotations_ensembl <- function(gene_list) {
-  ensembl <- useMart("ensembl", dataset = "hsapiens_gene_ensembl")
-  ensembl_annotations_data <- getBM(attributes = c("ensembl_gene_id", "external_gene_name", "description"), #external_gene_name correct
-                            filters = "external_gene_name", 
-                            values = gene_list,
-                            mart = ensembl)
-  return(ensembl_annotations_data)
-}
 
 
 # Function to retrieve gene annotations from NCBI Entrez
 retrieve_annotations_entrez <- function(gene_list) {
   entrez <- useMart("ensembl", dataset = "hsapiens_gene_ensembl")
   entrez_annotations_data <- getBM(attributes = c("entrezgene_id", "external_gene_name", "description"), # external_gene_name correct
-                       filters = "external_gene_name",
+                       filters = "external_gene_name", # To use the EntrezID, otherwise "external_gene_name" for symbol
                        values = gene_list,
                        mart = entrez)
   return(entrez_annotations_data)
@@ -94,7 +93,7 @@ retrieve_annotations_entrez <- function(gene_list) {
 
 # Function to retrieve pathway data from KEGG
 retrieve_pathway_data_kegg <- function(gene_list) {
-  kegg_pathway_data <- keggGet(gene_list, "hsa", "pathway") #keggget not found
+  kegg_pathway_data <- keggGet(gene_list, "hsa") #Limit 10 inputs
   return(kegg_pathway_data)
 }
 
@@ -109,15 +108,18 @@ retrieve_ppi_data_string <- function(gene_list) {
 
 # Function to retrieve gene annotations from UniProt
 retrieve_annotations_uniprot <- function(gene_list) {
-  annotations <- map_df(gene_list, function(gene) {
+  uniprot_annotations_data <- map_df(gene_list, function(gene) {
     url <- paste0("https://www.uniprot.org/uniprot/?query=gene:", gene, "&format=tab")
     response <- httr::GET(url)
     content <- httr::content(response, "text")
     annotations_data <- read.table(text = content, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
     return(annotations_data)
   })
-  return(uniprot_annotations_data) # do i need two returns? 
+  return(uniprot_annotations_data)
 }
+
+
+
 
 # Function to clean and combine gene annotations
 clean_and_combine_annotations <- function(source_list) {
@@ -141,15 +143,16 @@ clean_and_combine_annotations <- function(source_list) {
 #### RETRIEVE ANNOTATIONS ####
 
 # Define the gene lists
-gene_lists <- list(top25_clk1_s) # just one clock to test the script
+gene_lists <- list(top25_clk3_e) # just one clock to test the script
 
 # 1.1 Retrieve Gene Annotations from BioGrid
 gene_annotations_biogrid <- lapply(gene_lists, retrieve_ppi_data_biogrid)
 print(gene_annotations_biogrid)
 
-# 1.2. Retrieve Gene Annotations from DAVID
-gene_annotations_david <- lapply(gene_lists, retrieve_functional_enrichment_david)
-print(gene_annotations_david)
+# # 1.2. Retrieve Gene Annotations from DAVID
+# gene_annotations_david <- lapply(gene_lists, retrieve_functional_classification_david)
+# print(gene_annotations_david)
+
 
 # 1.3. Retrieve Gene Annotations from Ensembl
 gene_annotations_ensembl <- lapply(gene_lists, retrieve_annotations_ensembl)
@@ -160,8 +163,9 @@ gene_annotations_entrez <- lapply(gene_lists, retrieve_annotations_entrez)
 print(gene_annotations_entrez)
 
 # 1.5. Retrieve Gene Annotations from KEGG
-gene_annotations_kegg <- lapply(gene_lists, retrieve_pathway_data_kegg)
+gene_annotations_kegg <- lapply(gene_lists, retrieve_pathway_data_kegg)   # In keggGet(gene_list, "hsa") : More than 10 inputs supplied, only the first 10 results will be returned.
 print(gene_annotations_kegg)
+
 
 # 1.6. Retrieve Gene Annotations from STRING
 gene_annotations_string <- lapply(gene_lists, retrieve_ppi_data_string)
@@ -256,6 +260,4 @@ write.csv(final_combined_annotations, "combined_annotations.csv", row.names = FA
 #   # Save the combined annotations to a file with a name reflecting the clock being processed
 #   write.csv(final_combined_annotations, paste0("combined_annotations_clock", i, ".csv"), row.names = FALSE)
 # }
-# 
-# 
 # 
