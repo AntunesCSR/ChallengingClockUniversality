@@ -16,21 +16,25 @@ def retrieve_ppi_data(gene_symbols, species="9606", confidence_score=0.7):
     
     base_url = "https://string-db.org/api"
     method = "interaction_partners"
+    output_format = "json"
 
     ppi_data = []
 
     for gene_symbol in gene_symbols:
         try:
             # Make a request to the STRING API
+            # response = requests.get(
+            #     f"{base_url}/{method}?identifiers={gene_symbol}&species={species}&required_score={confidence_score}"
+            # )
             response = requests.get(
-                f"{base_url}/{method}?identifiers={gene_symbol}&species={species}&required_score={confidence_score}"
+                f"{base_url}/{output_format}/{method}?identifiers={gene_symbol}&species={species}&required_score={confidence_score}"
             )
-
             if response.status_code == 200:
                 # Parse the JSON response
                 data = response.json()
 
                 # Extract relevant information from the response
+                # if error in data list then print error message else append data to ppi_data
                 if data.get("error"):
                     print(f"Error retrieving PPI data for {gene_symbol}: {data['error']}")
                 else:
