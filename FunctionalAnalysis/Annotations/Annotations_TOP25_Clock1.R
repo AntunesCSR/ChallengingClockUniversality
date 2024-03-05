@@ -15,6 +15,9 @@ library(stringr)
 library(httr)
 library(org.Hs.eg.db)
 library(KEGGREST)
+library(KEGGgraph)
+library(AnnotationHub)
+library(jsonlite)
 
 #### LOAD THE DATA ####
 
@@ -49,35 +52,36 @@ retrieve_ppi_data_biogrid <- function(gene_list) {
   api_key <- "e250241e4295ebc3a4aa90057f51cc3d"
   url <- paste0("https://webservice.thebiogrid.org/interactions/?accesskey=", api_key,
                 "&geneList=", paste(gene_list, collapse = "|"), # List of genes to retrieve interactions for
-                "&seachNames=TRUE", # Search for gene names in addition to gene IDs
-                "includeInteractors=TRUE", # Include interactors in the response
+                "&searchNames=TRUE", # Search for gene names in addition to gene 
+                "&searchSynonyms=TRUE", # Search for gene synonyms in addition to gene IDs
+                "&includeInteractors=TRUE", # Include interactors in the response
+                "&includeInteractorsInteractions=FALSE", # TO NOT Include interactors interactions in the response
                 "&includeHeader=TRUE", # Include the header in the response
-                # "&format=json", # Return the data in JSON format. standard option .tab2
+                "&format=json", # Return the data in JSON format. standard option .tab2
                 "&max=10" # Maximum number of interactions to retrieve
   )
   response <- httr::GET(url)
-  biogrid_ppi_data <- httr::content(response, "parsed")
-  return(biogrid_ppi_data)
+  biogrid_ppi_data <- httr::content(response, "parsed") 
+  
+  # # Extracting only the required fields and storing in a list
+  # extracted_data <- lapply(biogrid_ppi_data, function(x) {
+  #   list(
+  #     BIOGRID_INTERACTION_ID = x$BIOGRID_INTERACTION_ID,
+  #     ENTREZ_GENE_A = x$ENTREZ_GENE_A,
+  #     ENTREZ_GENE_B = x$ENTREZ_GENE_B
+  #   )
+  # })
+  # 
+  # return(extracted_data)
+  
+  # Extracting only the required fields and storing in an edge list
+  edge_list <- lapply(biogrid_ppi_data, function(x) {
+    c(source = x$ENTREZ_GENE_A, target = x$ENTREZ_GENE_B)
+  })
+  
+  return(edge_list)
+
 }
-
-
-# # Function to retrieve functional classification data from DAVID => not working like this. Need to use WEB services (Python)
-# retrieve_functional_classification_david <- function(gene_list) {
-#   url <- paste0("https://david.ncifcrf.gov/api.jsp?",
-#                 "type=ENTREZ_GENE_ID", # Correct type for DAVID
-#                 "&ids=", paste(gene_list, collapse = ","), 
-#                 "&tool=gene2gene"
-#   )
-#   
-#   # Print the URL for debugging
-#   cat("API URL:", url, "\n")
-#   
-#   response <- httr::GET(url)  # Adding this line to make the request
-#   content <- httr::content(response, "parsed")
-#   david_enrichment_data <- content$gene2gene
-#   return(david_enrichment_data)
-# }
-
 
 
 # Function to retrieve gene annotations from NCBI Entrez
@@ -91,14 +95,33 @@ retrieve_annotations_entrez <- function(gene_list) {
 }
 
 
-# Function to retrieve pathway data from KEGG
+# Function to retrieve pathway data from KEGG (REQUIRES NCBI GENE ID's)
 retrieve_pathway_data_kegg <- function(gene_list) {
-  kegg_pathway_data <- keggGet(gene_list, "hsa") #Limit 10 inputs
-  return(kegg_pathway_data)
+  
+  # Convert NCBI Gene IDs to KEGG IDs
+  kegg_ids <- lapply(gene_list, function(gene_id) {
+    conv_result <- tryCatch(keggConv("genes", paste0("ncbi-geneid:", gene_id)), error = function(e) NA)
+    return(conv_result)
+  })
+  
+  # Print the KEGG IDs
+  print(kegg_ids)
+  
+  # Filter out NAs
+  kegg_ids <- kegg_ids[!sapply(kegg_ids, function(x) identical(x, NA))]
+  
+  # Retrieve pathway data using the converted KEGG IDs
+  if (length(kegg_ids) > 0) {
+    kegg_pathway_data <- keggLink("pathway", kegg_ids)
+    return(kegg_pathway_data)
+  } else {
+    warning("No valid KEGG IDs found.")
+    return(NULL)
+  }
 }
 
 
-# Function to retrieve protein-protein interaction data from STRING
+# Function to retrieve protein-protein interaction data from STRING          ############# FIX THIS ONE
 retrieve_ppi_data_string <- function(gene_list) {
   string_db <- STRINGdb$new(version = "11", score_threshold = 700)
   string_ppi_data <- string_db$get_interactions(gene_list)
@@ -106,21 +129,7 @@ retrieve_ppi_data_string <- function(gene_list) {
 }
 
 
-# Function to retrieve gene annotations from UniProt
-retrieve_annotations_uniprot <- function(gene_list) {
-  uniprot_annotations_data <- map_df(gene_list, function(gene) {
-    url <- paste0("https://www.uniprot.org/uniprot/?query=gene:", gene, "&format=tab")
-    response <- httr::GET(url)
-    content <- httr::content(response, "text")
-    annotations_data <- read.table(text = content, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
-    return(annotations_data)
-  })
-  return(uniprot_annotations_data)
-}
-
-
-
-
+############# FIX FROM HERE
 # Function to clean and combine gene annotations
 clean_and_combine_annotations <- function(source_list) {
   # Merge data frames based on the common gene identifier
@@ -143,11 +152,15 @@ clean_and_combine_annotations <- function(source_list) {
 #### RETRIEVE ANNOTATIONS ####
 
 # Define the gene lists
-gene_lists <- list(top25_clk3_e) # just one clock to test the script
+gene_lists_s <- list('ANK1')
+gene_lists_e <- list('268') 
 
 # 1.1 Retrieve Gene Annotations from BioGrid
-gene_annotations_biogrid <- lapply(gene_lists, retrieve_ppi_data_biogrid)
+gene_annotations_biogrid <- lapply(gene_lists_s, retrieve_ppi_data_biogrid)
+gene_ppi_biogrid_edge_list <- lapply(gene_lists_s, retrieve_ppi_data_biogrid_edge_list)
 print(gene_annotations_biogrid)
+print(gene_ppi_biogrid_edge_list)
+
 
 # # 1.2. Retrieve Gene Annotations from DAVID
 # gene_annotations_david <- lapply(gene_lists, retrieve_functional_classification_david)
@@ -162,14 +175,15 @@ print(gene_annotations_ensembl)
 gene_annotations_entrez <- lapply(gene_lists, retrieve_annotations_entrez)
 print(gene_annotations_entrez)
 
+
 # 1.5. Retrieve Gene Annotations from KEGG
-gene_annotations_kegg <- lapply(gene_lists, retrieve_pathway_data_kegg)   # In keggGet(gene_list, "hsa") : More than 10 inputs supplied, only the first 10 results will be returned.
-print(gene_annotations_kegg)
+gene_pathway_kegg <- lapply(gene_lists_e, retrieve_pathway_data_kegg)
+print(gene_pathway_kegg)
 
 
 # 1.6. Retrieve Gene Annotations from STRING
-gene_annotations_string <- lapply(gene_lists, retrieve_ppi_data_string)
-print(gene_annotations_string)
+gene_annotations_string <- lapply(gene_lists, retrieve_ppi_data_string)  
+print(gene_annotations_string)   
 
 # 1.7. Retrieve Gene Annotations from UniProt
 gene_annotations_uniprot <- lapply(gene_lists, retrieve_annotations_uniprot)
