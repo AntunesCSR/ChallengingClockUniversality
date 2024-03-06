@@ -6,7 +6,11 @@ library(ggplot2)
 #### LOAD THE DATA ####
 
 # List of file names
-file_names <- c("top_25_cpgs_clock_1.csv", "top_25_cpgs_clock_2.csv", "top_25_cpgs_clock_3.csv", "top_25_cpgs_overlap_1_2_3.csv", "top_25_cpgs_overlap_2_3.csv")
+file_names <- c("top_25_cpgs_clock_1.csv", 
+                "top_25_cpgs_clock_2.csv", 
+                "top_25_cpgs_clock_3.csv", 
+                "top_25_cpgs_overlap_1_2_3.csv", 
+                "top_25_cpgs_overlap_2_3.csv")
 
 # List to store data frames
 cpgs_data_list <- list()
@@ -14,7 +18,7 @@ cpgs_data_list <- list()
 # Loop through each file and read into a data frame
 for (file_name in file_names) {
   # Create the file path
-  csv_file_path <- file.path("FunctionalAnalysis", file_name)
+  csv_file_path <- file.path("../../FunctionalAnalysis", file_name)
   
   # Read the CSV file into a data frame and add it to the list
   cpgs_data_list[[file_name]] <- read.csv(csv_file_path)
@@ -75,7 +79,7 @@ overlap_1_2_3_GOA_results <- GOA_results_list[["overlap_1_2_3"]]
 overlap_2_3_GOA_results <- GOA_results_list[["overlap_2_3"]]
 
 # Print the results
-print(clock_1_GOA_results)
+print(clock_1_GOA_results) # 0 enriched terms found
 print(clock_2_GOA_results)
 print(clock_3_GOA_results)
 print(overlap_1_2_3_GOA_results)
@@ -83,7 +87,7 @@ print(overlap_2_3_GOA_results)
 
 
 # Save the results to CSV files
-write.csv(clock_1_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_1_GOA_25_results.csv")
+# write.csv(clock_1_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_1_GOA_25_results.csv") # 0 enriched terms found
 write.csv(clock_2_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_2_GOA_25_results.csv")
 write.csv(clock_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_3_GOA_25_results.csv")
 write.csv(overlap_1_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overlap_1_2_3_GOA_25_results.csv")
@@ -91,20 +95,21 @@ write.csv(overlap_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overla
 
 
 # Visualize the results
-# dotplot(clock_1_GOA_results, showCategory = 10)  # empty plot
-dotplot(clock_2_GOA_results, showCategory = 25, title = "Top 25 GO terms for clock 2")
-dotplot(clock_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for clock 3")
-dotplot(overlap_1_2_3_GOA_results, showCategory = 15, title = "Top 25 GO terms for overlap of clocks 1, 2 and 3")
-dotplot(overlap_2_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for overlap 2 and 3")
+# dotplot(clock_1_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 1 (25 Genes)") # 0 enriched terms found
+dotplot(clock_2_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 2 (25 Genes)")
+dotplot(clock_3_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 3 (25 Genes)")
+dotplot(overlap_1_2_3_GOA_results, showCategory = 10, title = "Top 10 GO terms for overlap of clocks 1, 2 and 3 (25 Genes)")
+dotplot(overlap_2_3_GOA_results, showCategory = 10, title = "Top 10 GO terms for overlap 2 and 3 (25 Genes)")
 
-
+# Need to change wd to GO annot
 
 # Export the plots as PNG files
-# ggsave("clock_1_GOA_25_results.png", plot = dotplot(clock_1_GOA_results, showCategory = 25, title = "Top 25 GO terms for clock 1"))
-ggsave("clock_2_GOA_25_results.png", plot = dotplot(clock_2_GOA_results, showCategory = 25, title = "Top 25 GO terms for clock 2"))
-ggsave("clock_3_GOA_25_results.png", plot = dotplot(clock_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for clock 3"))
-ggsave("overlap_1_2_3_GOA_25_results.png", plot = dotplot(overlap_1_2_3_GOA_results, showCategory = 25, title = "Top 25 GO terms for overlap of clocks 1, 2, and 3"))
-ggsave("overlap_2_3_GOA_25_results.png", plot = dotplot(overlap_2_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for overlap 2 and 3"))
+# ggsave("clock_1_GOA_25_results.png", plot = dotplot(clock_1_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 1 (25 Genes)")) # 0 enriched terms found
+ggsave("clock_2_GOA_25_results.png", plot = dotplot(clock_2_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 2 (25 Genes)"))
+ggsave("clock_3_GOA_25_results.png", plot = dotplot(clock_3_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 3 (25 Genes)"))
+ggsave("overlap_1_2_3_GOA_25_results.png", plot = dotplot(overlap_1_2_3_GOA_results, showCategory = 10, title = "Top 10 GO terms for overlap of clocks 1, 2 and 3 (25 Genes)"))
+ggsave("overlap_2_3_GOA_25_results.png", plot = dotplot(overlap_2_3_GOA_results, showCategory = 10, title = "Top 10 GO terms for overlap 2 and 3 (25 Genes)"))
+
 
 
 
