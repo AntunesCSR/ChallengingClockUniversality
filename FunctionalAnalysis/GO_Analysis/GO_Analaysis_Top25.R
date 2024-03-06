@@ -88,10 +88,10 @@ print(overlap_2_3_GOA_results)
 
 # Save the results to CSV files
 # write.csv(clock_1_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_1_GOA_25_results.csv") # 0 enriched terms found
-write.csv(clock_2_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_2_GOA_25_results.csv")
-write.csv(clock_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/clock_3_GOA_25_results.csv")
-write.csv(overlap_1_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overlap_1_2_3_GOA_25_results.csv")
-write.csv(overlap_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overlap_2_3_GOA_25_results.csv")
+write.csv(clock_2_GOA_results, file = "clock_2_GOA_25_results.csv")
+write.csv(clock_3_GOA_results, file = "clock_3_GOA_25_results.csv")
+write.csv(overlap_1_2_3_GOA_results, file = "overlap_1_2_3_GOA_25_results.csv")
+write.csv(overlap_2_3_GOA_results, file = "overlap_2_3_GOA_25_results.csv")
 
 
 # Visualize the results
