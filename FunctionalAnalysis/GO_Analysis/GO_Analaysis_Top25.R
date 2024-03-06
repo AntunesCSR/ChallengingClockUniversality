@@ -92,18 +92,20 @@ write.csv(overlap_2_3_GOA_results, file = "FunctionalAnalysis/GO_Analysis/overla
 
 # Visualize the results
 # dotplot(clock_1_GOA_results, showCategory = 10)  # empty plot
-dotplot(clock_2_GOA_results, showCategory = 10, title = "Top 10 GO terms for clock 2")
-dotplot(clock_3_GOA_results, showCategory = 15, font=7, title = "Top 15 GO terms for clock 3")
-dotplot(overlap_1_2_3_GOA_results, showCategory = 15, title = "Top 15 GO terms for overlap of clocks 1, 2 and 3")
-dotplot(overlap_2_3_GOA_results, showCategory = 15, font=7, title = "Top 15 GO terms for overlap 2 and 3")
+dotplot(clock_2_GOA_results, showCategory = 25, title = "Top 25 GO terms for clock 2")
+dotplot(clock_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for clock 3")
+dotplot(overlap_1_2_3_GOA_results, showCategory = 15, title = "Top 25 GO terms for overlap of clocks 1, 2 and 3")
+dotplot(overlap_2_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for overlap 2 and 3")
 
 
-# Export the visualizations to PNG files
-# ggsave("FunctionalAnalysis/GO_Analysis/clock_1_GOA_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/clock_2_GOA_25_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/clock_3_GOA_25_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/overlap_1_2_3_GOA_25_results.png")
-ggsave("FunctionalAnalysis/GO_Analysis/overlap_2_3_GOA_25_results.png")
+
+# Export the plots as PNG files
+# ggsave("clock_1_GOA_25_results.png", plot = dotplot(clock_1_GOA_results, showCategory = 25, title = "Top 25 GO terms for clock 1"))
+ggsave("clock_2_GOA_25_results.png", plot = dotplot(clock_2_GOA_results, showCategory = 25, title = "Top 25 GO terms for clock 2"))
+ggsave("clock_3_GOA_25_results.png", plot = dotplot(clock_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for clock 3"))
+ggsave("overlap_1_2_3_GOA_25_results.png", plot = dotplot(overlap_1_2_3_GOA_results, showCategory = 25, title = "Top 25 GO terms for overlap of clocks 1, 2, and 3"))
+ggsave("overlap_2_3_GOA_25_results.png", plot = dotplot(overlap_2_3_GOA_results, showCategory = 25, font=7, title = "Top 25 GO terms for overlap 2 and 3"))
+
 
 
 
