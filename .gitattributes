@@ -1,3 +1,1 @@
 *.RDataTmp filter=lfs diff=lfs merge=lfs -text
-GSE184211_datBetaNormalized.csv filter=lfs diff=lfs merge=lfs -text
-GSE223748_datBetaNormalized.csv filter=lfs diff=lfs merge=lfs -text
