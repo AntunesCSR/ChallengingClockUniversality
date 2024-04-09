@@ -1,12 +1,13 @@
 
 ###############################################################################
 #
-# Title: Complex Heatmap of methylation data of Clock1 
+# Title: Complex Heatmap of methylation data of several clocks 
 # Date: 28/03/2024
 # Author: Catia Antunes
 #
 # Description:
-# Complex heatmap of methylation data of top 100 CpG sites identified by Clock1
+# Complex heatmap of methylation data of top 100 CpG sites identified by Clocks
+# 1, 2, 3 and overlaps further grouped by Tissue.
 #
 # Based on the code from:
 # https://github.com/kevinblighe/E-MTAB-6141?tab=readme-ov-file
