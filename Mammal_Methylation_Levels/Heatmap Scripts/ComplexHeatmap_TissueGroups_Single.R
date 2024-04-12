@@ -34,25 +34,25 @@ script_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
 setwd(script_dir)
 
 # Load data & Sneak a peek
-metadata <- read.table("human_metadata_184211.csv", header = TRUE, sep = ",")
+metadata <- read.table("../human_metadata_184211.csv", header = TRUE, sep = ",")
 metadata[1:5,1:5]
 dim(metadata)
+# 
+# clock1_top100_methylation <- read.table("../Clocks Methylation Data/Clock1_methylation_data_top100.csv", header = TRUE, sep = ",")
+# clock1_top100_methylation[1:5,1:5]
+# dim(clock1_top100_methylation)
 
-clock1_top100_methylation <- read.table("./Clocks Methylation Data/Clock1_methylation_data_top100.csv", header = TRUE, sep = ",")
-clock1_top100_methylation[1:5,1:5]
-dim(clock1_top100_methylation)
-
-# human_methylation_data <- read.table("GSE184211_datBetaNormalized.csv", header = TRUE, sep = ",")
-# human_methylation_data[1:5,1:5]
-# dim(human_methylation_data)
+human_methylation_data <- read.table("GSE184211_datBetaNormalized.csv", header = TRUE, sep = ",")
+human_methylation_data[1:5,1:5]
+dim(human_methylation_data)
 
 
 
 #### Read metadata & Load Methylation Data
 
 # Extract relevant data and convert to matrixes
-mat <- as.matrix(clock1_top100_methylation[, -1])
-# mat <- as.matrix(human_methylation_data[, -1])
+# mat <- as.matrix(clock1_top100_methylation[, -1])
+mat <- as.matrix(human_methylation_data[, -1])
 metadata <- as.data.frame(metadata)
 
 # print the unique names of the tissues
@@ -73,20 +73,6 @@ mat[1:5,1:5]
 # Scale the data
 heat <- t(scale(t(mat)))
 
-
-
-#### Clusetirng Analysis (PAM)
-
-# Perform partitioning around medoids (PAM) to identify clusters in the data
-pamClusters <- cluster::pam(heat, k = 4) # pre-select k = 4 centers
-pamClusters$clustering <- paste0('Cluster ', pamClusters$clustering)
-
-# fix order of the clusters to have 1 to 4, top to bottom
-pamClusters$clustering <- factor(pamClusters$clustering,
-                                 levels = c('Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4'))
-
-# print the number of CpGs in each cluster
-table(pamClusters$clustering)
 
 
 
@@ -177,7 +163,8 @@ if (!file.exists(heatmap_dir))
   dir.create(heatmap_dir)
 
 # create the filename for the heatmap
-filename <- file.path(heatmap_dir, sub(".csv$", "_Heatmap.png", basename(file))) # Dynamically set the filename and save in the heatmap directory
+# filename <- file.path(heatmap_dir, sub(".csv$", "_Heatmap.png", basename(file))) # Dynamically set the filename and save in the heatmap directory
+filename <- file.path(heatmap_dir, "GSE184211_TissueGrouped_Heatmap.png")
 
 # Instructions for the png file
 png(filename, width=10,height=7,units="in",res=1200)
@@ -201,10 +188,6 @@ dend1 = cluster_between_groups(heat, tissue_numeric)
 
 hmap <- Heatmap(heat,
 
-                # split the CpGs / rows according to the PAM clusters
-                split = pamClusters$clustering,
-                cluster_row_slices = FALSE,
-
 
                 # Set colour scheme of the range of values
                 col = colorRamp2(myBreaks, myCol),
@@ -224,7 +207,7 @@ hmap <- Heatmap(heat,
 
                 # row (CpG) parameters
                 cluster_rows = TRUE, # No clustering of rows
-                show_row_dend = TRUE, # No row dendrogram
+                show_row_dend = FALSE, # No row dendrogram
 
                 row_title = 'PAM Clustered CpGs',
                 row_title_side = 'left',
@@ -248,11 +231,6 @@ hmap <- Heatmap(heat,
                 column_names_max_height = unit(10, 'cm'),
                 column_dend_height = unit(25,'mm'),
 
-                # # cluster methods for rows and columns
-                clustering_distance_columns = function(x) as.dist(1 - cor(t(x))),
-                clustering_method_columns = 'ward.D2',
-                # clustering_distance_rows = function(x) as.dist(1 - cor(t(x))),
-                # clustering_method_rows = 'ward.D2',
 
                 # specify top and bottom annotations
                 top_annotation = colAnn,
@@ -270,7 +248,8 @@ draw(
   row_sub_title_side = 'left',
   legend_gap = unit(0.5, "cm"),
   padding = unit(c(2, 1, 1, 1), "cm"),
-  column_title="Methylation Profile of Top 100 CpG's Identified by Clock 1",
+  # column_title="Methylation Profile of Top 100 CpG's Identified by Clock 1",
+  column_title="Methylation Profile of Human CpG's (GSE184211)",
   column_title_gp=grid::gpar(fontsize=13, fontface="bold", family="serif"),
 )
 

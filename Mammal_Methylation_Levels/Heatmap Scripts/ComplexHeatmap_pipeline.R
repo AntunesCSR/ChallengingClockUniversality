@@ -31,7 +31,7 @@ script_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
 setwd(script_dir)
 
 # List all CSV files in the "Clocks Methylation Data" folder
-files <- list.files(path = "Clocks Methylation Data", pattern = "*.csv", full.names = TRUE)
+files <- list.files(path = "../Clocks Methylation Data", pattern = "*.csv", full.names = TRUE)
 
 
 
@@ -42,7 +42,7 @@ for (file in files) {
   
   #### Read metadata & Load Methylation Data
   # Read metadata
-  metadata <- read.table("human_metadata_184211.csv", header = TRUE, sep = ",")
+  metadata <- read.table("../human_metadata_184211.csv", header = TRUE, sep = ",")
   
   # Read methylation data
   clock_data <- read.table(file, header = TRUE, sep = ",")
@@ -56,18 +56,7 @@ for (file in files) {
   #### Preprocess Data (Scaling)
   # Scale the data
   heat <- t(scale(t(mat)))
-  
-  
-  
-  #### Clusetirng Analysis (PAM)
-  
-  # Perform partitioning around medoids (PAM) to identify clusters in the data
-  pamClusters <- cluster::pam(heat, k = 4)
-  pamClusters$clustering <- paste0('Cluster ', pamClusters$clustering)
-  
-  # fix order of the clusters to have 1 to 4, top to bottom
-  pamClusters$clustering <- factor(pamClusters$clustering,
-                                   levels = c('Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4'))
+
   
   
   
@@ -166,10 +155,6 @@ for (file in files) {
   
   hmap <- Heatmap(heat,
                   
-                  # split the CpGs / rows according to the PAM clusters
-                  split = pamClusters$clustering,
-                  cluster_row_slices = FALSE,
-                  
                   
                   # Set colour scheme of the range of values
                   col = colorRamp2(myBreaks, myCol),
@@ -188,10 +173,10 @@ for (file in files) {
                   
                   
                   # row (CpG) parameters
-                  cluster_rows = TRUE, # No clustering of rows
+                  cluster_rows = TRUE, # Cluster rows
                   show_row_dend = FALSE, # No row dendrogram
                   
-                  row_title = 'PAM Clustered CpGs',
+                  row_title = 'CpGs',
                   row_title_side = 'left',
                   row_title_gp = gpar(fontsize = 12,  fontface = 'bold', family = 'serif'),
                   row_title_rot = 90,
@@ -216,8 +201,7 @@ for (file in files) {
                   # # cluster methods for rows and columns
                   clustering_distance_columns = function(x) as.dist(1 - cor(t(x))),
                   clustering_method_columns = 'ward.D2',
-                  # clustering_distance_rows = function(x) as.dist(1 - cor(t(x))),
-                  # clustering_method_rows = 'ward.D2',
+                  
                   
                   # specify top and bottom annotations
                   top_annotation = colAnn,
