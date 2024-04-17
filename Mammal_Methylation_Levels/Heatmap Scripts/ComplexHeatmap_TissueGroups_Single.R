@@ -206,10 +206,10 @@ hmap <- Heatmap(heat,
 
 
                 # row (CpG) parameters
-                cluster_rows = TRUE, # No clustering of rows
+                cluster_rows = FALSE, # No clustering of rows
                 show_row_dend = FALSE, # No row dendrogram
 
-                row_title = 'PAM Clustered CpGs',
+                row_title = 'CpGs',
                 row_title_side = 'left',
                 row_title_gp = gpar(fontsize = 12,  fontface = 'bold', family = 'serif'),
                 row_title_rot = 90,
@@ -249,7 +249,7 @@ draw(
   legend_gap = unit(0.5, "cm"),
   padding = unit(c(2, 1, 1, 1), "cm"),
   # column_title="Methylation Profile of Top 100 CpG's Identified by Clock 1",
-  column_title="Methylation Profile of Human CpG's (GSE184211)",
+  column_title="Methylation Profile of Human CpG's Grouped by Tissue (GSE184211)",
   column_title_gp=grid::gpar(fontsize=13, fontface="bold", family="serif"),
 )
 

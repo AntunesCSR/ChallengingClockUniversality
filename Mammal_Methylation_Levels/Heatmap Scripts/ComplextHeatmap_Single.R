@@ -37,8 +37,8 @@ metadata <- read.table("../human_metadata_184211.csv", header = TRUE, sep = ",")
 metadata[1:5,1:5]
 dim(metadata)
 
-
-### Uncoment this for Clock 1 Methylation
+# 
+# ## Uncoment this for Clock 1 Methylation
 # clock1_top100_methylation <- read.table("../Clocks Methylation Data/Clock1_methylation_data_top100.csv", header = TRUE, sep = ",")
 # clock1_top100_methylation[1:5,1:5]
 # dim(clock1_top100_methylation)
@@ -211,10 +211,10 @@ hmap <- Heatmap(heat,
                
                 
                 # row (CpG) parameters
-                cluster_rows = TRUE, # No clustering of rows
+                cluster_rows = FALSE, # No clustering of rows
                 show_row_dend = FALSE, # No row dendrogram
                 
-                row_title = 'PAM Clustered CpGs',
+                row_title = 'CpGs',
                 row_title_side = 'left',
                 row_title_gp = gpar(fontsize = 12,  fontface = 'bold', family = 'serif'),
                 row_title_rot = 90,
