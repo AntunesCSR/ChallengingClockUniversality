@@ -5,8 +5,8 @@
 # Author: Catia Antunes
 #
 # Description:
-# Complex heatmap of methylation data of top 100 CpG sites identified by Clocks
-# 1, 2, 3 and overlaps furthergrouped by tissue and including PAM clustering 
+# Complex heatmap of methylation data of top CpG sites identified by Clocks
+# 1, 2, 3 and overlaps further grouped by tissue and including PAM clustering 
 # optimization..
 #
 # Based on the code from:
@@ -21,6 +21,7 @@ library(ComplexHeatmap)
 library(RColorBrewer)
 library(colorRamp2)
 library(circlize)
+library(cluster)
 
 
 
@@ -33,7 +34,10 @@ script_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
 setwd(script_dir)
 
 # List all CSV files in the "Clocks Methylation Data" folder
-files <- list.files(path = "Clocks Methylation Data", pattern = "*.csv", full.names = TRUE)
+files <- list.files(path = "../Clocks Methylation Data", pattern = "*.csv", full.names = TRUE)
+
+# Read metadata
+metadata <- read.table("../human_metadata_184211.csv", header = TRUE, sep = ",")
 
 
 
@@ -42,9 +46,7 @@ files <- list.files(path = "Clocks Methylation Data", pattern = "*.csv", full.na
 # Loop over each file in the list
 for (file in files) {
   
-  #### Read metadata & Load Methylation Data
-  # Read metadata
-  metadata <- read.table("human_metadata_184211.csv", header = TRUE, sep = ",")
+  #### Load Methylation Data
   
   # Read methylation data
   clock_data <- read.table(file, header = TRUE, sep = ",")
