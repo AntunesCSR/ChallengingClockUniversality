@@ -71,12 +71,12 @@ for (file_name in file_names) {
   cpgs_data_list[[file_name]] <- read.csv(file_path, stringsAsFactors = FALSE)
 }
 
-# Create a list of data frames for the gene sets
+# Create a list of data frames for the genes seets
 gene_set_data_list <- list(
-  "Clock_1" = cpgs_data_list[[file_names[1]]],
-  "Clock_2" = cpgs_data_list[[file_names[2]]],
-  "Clock_3" = cpgs_data_list[[file_names[3]]],
-  "Clock_2_3_overlap" = cpgs_data_list[[file_names[4]]]
+  "Clock_1_rel_cpgs" = cpgs_data_list[[file_names[1]]],
+  "Clock_2_rel_cpgs" = cpgs_data_list[[file_names[2]]],
+  "Clock_3_rel_cpgs" = cpgs_data_list[[file_names[3]]],
+  "Clock_2_3_overlap_rel_cpgs" = cpgs_data_list[[file_names[4]]]
 )
 
 ### Set the output folder
