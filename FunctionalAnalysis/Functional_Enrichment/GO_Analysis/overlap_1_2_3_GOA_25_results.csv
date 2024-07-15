@@ -1,3 +1,0 @@
-"","ID","Description","GeneRatio","BgRatio","pvalue","p.adjust","qvalue","geneID","Count"
-"GO:2000179","GO:2000179","positive regulation of neural precursor cell proliferation","3/21","63/18870",4.51874987968401e-05,0.0239041868635284,0.0156491443201689,"OTP/DLL4/LHX2",3
-"GO:2000177","GO:2000177","regulation of neural precursor cell proliferation","3/21","100/18870",0.000179192907489022,0.0473965240308462,0.0310286666125727,"OTP/DLL4/LHX2",3
