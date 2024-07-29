@@ -34,7 +34,11 @@ script_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
 setwd(script_dir)
 
 # List all CSV files in the "Clocks Methylation Data" folder
-files <- list.files(path = "../Clocks Methylation Data", pattern = "*.csv", full.names = TRUE)
+# files <- list.files(path = "../Clocks Methylation Data", pattern = "*.csv", full.names = TRUE)
+files <- list.files(path = "../Clocks Methylation Data", 
+                    # pattern = ".*200_methylation_data_human.csv", 
+                    pattern = ".*Clock2_3_overlap_200_methylation_data_human.csv", 
+                    full.names = TRUE)
 
 # Read metadata
 metadata <- read.table("../human_metadata_184211.csv", header = TRUE, sep = ",")
@@ -60,6 +64,7 @@ for (file in files) {
   #### Preprocess Data (Scaling)
   # Scale the data
   heat <- t(scale(t(mat)))
+  heat <- mat
   
   
   
@@ -187,7 +192,7 @@ for (file in files) {
   if (!file.exists(heatmap_dir)) 
     dir.create(heatmap_dir)
   
-  filename <- file.path(heatmap_dir, sub(".csv$", "_Tissues_Grouped_PAM_Heatmap.png", basename(file))) # Dynamically set the filename and save in the heatmap directory
+  filename <- file.path(heatmap_dir, sub(".csv$", "_Tissues_Grouped_PAM_Heatmap_noscaling.png", basename(file))) # Dynamically set the filename and save in the heatmap directory
   
   png(filename, width=10,height=7,units="in",res=1200)
   
@@ -272,6 +277,21 @@ for (file in files) {
   
   
   #### Draw the heatmap
+  
+  clock_name <- sub("_200_methylation_data_human.csv", "", basename(file))
+  clock_name <- gsub("_", " ", clock_name)
+
+  # Special handling for "Clock2_3_overlap"
+  if (clock_name == "Clock2_3_overlap") {
+    clock_name <- "Clock2 & 3 Overlap"
+  } else {
+    clock_name <- gsub("_", " ", clock_name)
+  }
+  
+  # Construct the title
+  title <- paste0(clock_name, " Top 200CpGs (Human)")
+  
+  
   draw(
     hmap,
     heatmap_legend_side = 'right', 
@@ -279,7 +299,8 @@ for (file in files) {
     row_sub_title_side = 'left',
     legend_gap = unit(0.5, "cm"), 
     padding = unit(c(2, 1, 1, 1), "cm"),
-    column_title = gsub("_Heatmap\\.png$", "", basename(file)),  # Dynamically set the title using the name of the file
+    # column_title = gsub("_Heatmap\\.png$", "", basename(file)),  # Dynamically set the title using the name of the file
+    column_title = title,  # Dynamically set the title using the formatted name
     column_title_gp = grid::gpar(fontsize = 13, fontface = "bold", family = "serif"),
   )
   
@@ -289,5 +310,4 @@ for (file in files) {
   dev.off()
   
 }
-
 
