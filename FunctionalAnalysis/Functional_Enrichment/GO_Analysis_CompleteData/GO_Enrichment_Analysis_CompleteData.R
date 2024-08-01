@@ -57,30 +57,24 @@ perform_GO_analysis <- function(gene_set_df, gene_set_name, ont_type, output_fol
 #### LOAD THE DATA ####
 # List of filenames
 file_names <- c(
-  "all_clocks_high_methylated_cpgs_annotated_relevant_CpGs.csv",
-  "all_clocks_low_methylated_cpgs_annotated_relevant_CpGs.csv",
-  "all_clocks_variable_methylated_cpgs_annotated_relevant_CpGs.csv",
-  "anova_all_clocks_significant_cpgs_annotated_relevant_CpGs.csv"
+  "complete_methylation_dataset_annotated_CpGs.csv"
 ) 
 
 # Loop through the filenames and read the data into a list
 cpgs_data_list <- list() 
 
 for (file_name in file_names) {
-  file_path <- here("FunctionalAnalysis/Annotations/Annotations Results/Cross-Tissue Methylation", file_name)
+  file_path <- here("FunctionalAnalysis/Annotations/Annotations Results/Complete Methylation Dataset", file_name)
   cpgs_data_list[[file_name]] <- read.csv(file_path, stringsAsFactors = FALSE)
 }
 
-# Create a list of data frames for the genes seets
+# Create a list of data frames for the genes sets
 gene_set_data_list <- list(
-  "high_methylated_cpgs" = cpgs_data_list[[file_names[1]]],
-  "low_methylated_cpgs" = cpgs_data_list[[file_names[2]]],
-  "variable_methylated_cpgs" = cpgs_data_list[[file_names[3]]],
-  "sig_variable_cpgs" = cpgs_data_list[[file_names[4]]]
+  "complete_dataset_cpgs" = cpgs_data_list[[file_names[1]]]
 )
 
 ### Set the output folder
-output_folder <- here("FunctionalAnalysis/Functional_Enrichment/Go_Analysis_CrossTissue/Results/")
+output_folder <- here("FunctionalAnalysis/Functional_Enrichment/GO_Analysis_CompleteData/Results/")
 
 ### Create a list to store the results of the gene set enrichment analysis
 GOA_results_list <- list()
