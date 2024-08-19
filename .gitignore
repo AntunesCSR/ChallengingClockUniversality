@@ -17,6 +17,7 @@
 
 # Ignore large data files
 *.csv
+*xlsx
 *.dat
 *.joblib
 
