@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Antunes"
+    given-names: "Cátia"
+title: "Challenging Clock Universality Repository"
+version: 1.0.0
+date-released: 2024-09-01  # Replace with the actual release date
+url: "https://github.com/AntunesCSR/ChallengingClockUniversality"
+type: software
+keywords:
+  - bioinformatics
+  - epigenetic clock
+  - aging
+license: GNU General Public License
+repository-code: "https://github.com/AntunesCSR/ChallengingClockUniversality"
+abstract: "This repository houses the computational framework and comprehensive analysis developed for a Master's thesis 
+in Bioinformatics. The research focuses on critically examining the universality principle of the pan-mammalian epigenetic clocks, a key 
+concept in the field of aging biology. Through statistical analyses and computational approaches, this 
+work challenges existing paradigms and explores the tissue-specific nature of epigenetic aging markers. The repository 
+includes custom Python scripts, R notebooks, and data processing pipelines designed to interrogate methylation 
+datasets across diverse tissue types. This research contributes to the ongoing scientific discourse on the 
+mechanisms of biological aging and the development of more accurate, context-specific epigenetic biomarkers."
