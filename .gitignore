@@ -30,3 +30,7 @@
 *.doc
 *.docx
 *.pdf
+
+
+# Exceptions
+!CrossTissue Methylation - Consistently Methylated CpGs.xlsx
