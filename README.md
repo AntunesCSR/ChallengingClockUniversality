@@ -1,3 +1,4 @@
 # MScProjectScripts
 
-Scripts and files associated to the MSc Thesis - Deciphering the Molecular Drivers of Epigenetic Clocks in Mammals: A Multi-Species Approach
+Scripts and files associated to the MSc Thesis: 
+"Challenging Clock Universality: A Comprehensive Analysis of Tissue-Specific Methylation Patterns in Mammalian Epigenetic Clocks"
