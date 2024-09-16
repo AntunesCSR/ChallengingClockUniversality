@@ -1,7 +1,18 @@
 ######################################################################################################
 ###################### Gene Ontology (GO) Enrichment Analysis for Relevant CpGs ######################
-###################### identified by the clustering analysis of the clock CpGs  ######################
+######################   identified by the Cross-Tissue Methylation Analysis    ######################
 ######################################################################################################
+
+# Title: Gene Ontology (GO) Enrichment Analysis Script of Relevant CpGs Identified in the Cross-Tissue Methylation Analysis
+# Author: Catia S. R. Antunes
+# Date: 2024-08
+# Description: This script performs Gene Ontology (GO) enrichment analysis on multiple gene sets using the clusterProfiler package. 
+#              It reads gene sets from CSV files and conducts GO enrichment for three ontology types: 
+#              Biological Process (BP), Molecular Function (MF), and Cellular Component (CC). 
+#              For each gene set, the results are saved as CSV files, and visualizations (dot plots and bar plots) 
+#              of the top 10 enriched GO terms are generated. The output files are stored in specified subfolders.
+#              The script is designed to handle multiple gene sets and automate the enrichment and visualization process.
+
 
 ### Load necessary packages
 library(clusterProfiler)
@@ -57,10 +68,10 @@ perform_GO_analysis <- function(gene_set_df, gene_set_name, ont_type, output_fol
 #### LOAD THE DATA ####
 # List of filenames
 file_names <- c(
-  # "all_clocks_high_methylated_cpgs_annotated_relevant_CpGs.csv",
-  # "all_clocks_low_methylated_cpgs_annotated_relevant_CpGs.csv",
-  # "all_clocks_variable_methylated_cpgs_annotated_relevant_CpGs.csv",
-  # "anova_all_clocks_significant_cpgs_annotated_relevant_CpGs.csv",
+  "all_clocks_high_methylated_cpgs_annotated_relevant_CpGs.csv",
+  "all_clocks_low_methylated_cpgs_annotated_relevant_CpGs.csv",
+  "all_clocks_variable_methylated_cpgs_annotated_relevant_CpGs.csv",
+  "anova_all_clocks_significant_cpgs_annotated_relevant_CpGs.csv",
   "all_clocks_variable_high_overlap_methylated_cpgs_annotated_relevant_CpGs.csv",
   "all_clocks_variable_low_overlap_methylated_cpgs_annotated_relevant_CpGs.csv",
    "all_clocks_variable_no_overlap_methylated_cpgs_annotated_relevant_CpGs.csv"
