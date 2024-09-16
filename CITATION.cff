@@ -12,7 +12,7 @@ keywords:
   - bioinformatics
   - epigenetic clock
   - aging
-license: GNU General Public License
+license: MIT License
 repository-code: "https://github.com/AntunesCSR/ChallengingClockUniversality"
 abstract: "This repository houses the computational framework and comprehensive analysis developed for a Master's thesis 
 in Bioinformatics. The research focuses on critically examining the universality principle of the pan-mammalian epigenetic clocks, a key 
