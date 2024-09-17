@@ -47,3 +47,11 @@ Mammal_Methylation_Levels/DEPRECATED
 
 ### Files to hide
 Mammal_Methylation_Levels/Cluster Analysis/Cluster_Analysis.ipynb
+ComplexHeatmap_pipeline.R
+ComplexHeatmap_TissueGroups_PAM_Single.R
+ComplexHeatmap_TissueGroups_Pipeline.R
+ComplexHeatmap_TissueGroups_Pipeline2.R
+ComplexHeatmap_TissueGroups_Single.R
+ComplextHeatmap_Single.R
+Elbow_Methyation_data_pipeline.R
+Heatmap.R
