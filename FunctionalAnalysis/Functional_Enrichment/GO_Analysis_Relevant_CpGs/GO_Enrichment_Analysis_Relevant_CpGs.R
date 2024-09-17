@@ -1,7 +1,18 @@
 ######################################################################################################
-###################### Gene Ontology (GO) Enrichment Analysis for Relevant CpGs ######################
+###################### Gene Ontology (GO) Enrichment Analysis of Relevant CpGs ######################
 ###################### identified by the clustering analysis of the clock CpGs  ######################
 ######################################################################################################
+
+# Title: Gene Ontology (GO) Enrichment Analysis Script of Relevant CpGs Identified in the cluster Analysis
+# Author: Catia S. R. Antunes
+# Date: 2024-08
+# Description: This script performs Gene Ontology (GO) enrichment analysis on multiple gene sets using the clusterProfiler package. 
+#              It reads gene sets from CSV files and conducts GO enrichment for three ontology types: 
+#              Biological Process (BP), Molecular Function (MF), and Cellular Component (CC). 
+#              For each gene set, the results are saved as CSV files, and visualizations (dot plots and bar plots) 
+#              of the top 10 enriched GO terms are generated. The output files are stored in specified subfolders.
+#              The script is designed to handle multiple gene sets and automate the enrichment and visualization process.
+
 
 ### Load necessary packages
 library(clusterProfiler)
