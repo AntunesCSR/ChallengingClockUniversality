@@ -3,11 +3,11 @@
 .RData
 .Ruserdata
 
-# Ignore video files
+### Ignore video files
 *.mp4
 *.mov
 
-# Ignore image files 
+### Ignore image files 
 *.png
 *.html
 *.jpg
@@ -15,29 +15,36 @@
 *.gif
 *.svg
 
-# Ignore large data files
+### Ignore large data files
 *.csv
 *xlsx
 *.dat
 *.joblib
 
-# Ignore compiled binaries
+### Ignore compiled binaries
 *.exe
 *.dll
 
-# Ignore text files
+### Ignore text files
 *.txt
 *.doc
 *.docx
 *.pdf
 
-# R
+### R
 .RDataTmp
 
-
-# Exceptions to track
+### Exceptions to track
+# Original Data (Clock data downloaded from the original source)
+!FunctionalAnalysis/sup_data_2_43587_2023_462_MOESM3_ESM.xlsx
+# Cross-Tissue Results (Results of the Cross-Tissue Analysis)
 !Mammal_Methylation_Levels/Cross-Tissue Methylation Patterns/Complete/CrossTissue Methylation - Consistently Methylated CpGs.xlsx
+# Clustering Data (Clock data required to run the clustering scripts)
+!Mammal_Methylation_Levels/Clocks Methylation Data/Clock1_Methylation_data_complete.csv
+!Mammal_Methylation_Levels/Clocks Methylation Data/Clock2_Methylation_data_complete.csv
+!Mammal_Methylation_Levels/Clocks Methylation Data/Clock3_Methylation_data_complete.csv
+!Mammal_Methylation_Levels/Clocks Methylation Data/Clock2_3_Overlap_Methylation_data_complete.csv
 
-# Folders to hide
+### Folders to hide
 FunctionalAnalysis/DEPRECATED
 Mammal_Methylation_Levels/DEPRECATED
