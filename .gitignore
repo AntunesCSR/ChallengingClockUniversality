@@ -39,12 +39,11 @@
 !FunctionalAnalysis/sup_data_2_43587_2023_462_MOESM3_ESM.xlsx
 # Cross-Tissue Results (Results of the Cross-Tissue Analysis)
 !Mammal_Methylation_Levels/Cross-Tissue Methylation Patterns/Complete/CrossTissue Methylation - Consistently Methylated CpGs.xlsx
-# Clustering Data (Clock data required to run the clustering scripts)
-!Mammal_Methylation_Levels/Clocks Methylation Data/Clock1_Methylation_data_complete.csv
-!Mammal_Methylation_Levels/Clocks Methylation Data/Clock2_Methylation_data_complete.csv
-!Mammal_Methylation_Levels/Clocks Methylation Data/Clock3_Methylation_data_complete.csv
-!Mammal_Methylation_Levels/Clocks Methylation Data/Clock2_3_Overlap_Methylation_data_complete.csv
+
 
 ### Folders to hide
 FunctionalAnalysis/DEPRECATED
 Mammal_Methylation_Levels/DEPRECATED
+
+### Files to hide
+Mammal_Methylation_Levels/Cluster Analysis/Cluster_Analysis.ipynb
